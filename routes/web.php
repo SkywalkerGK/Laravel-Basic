@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Route;
 | Here is where you can register web routes for your application. These
 | routes are loaded by the RouteServiceProvider and all of them will
 | be assigned to the "web" middleware group. Make something great!
-|
+| php artisan serve
 */
 
 Route::get('/', function () {
@@ -18,9 +18,17 @@ Route::get('/', function () {
 });
 
 Route::get('/about', function (){
-     echo "<h1>Hello</h1>";
+    return view('about');
 });
 
-Route::get('/users', function (){
-    echo "<h1>Hello Bass</h1>";
+Route::get('/admin', function (){
+    return view('admin.index');
+});
+
+Route::get('/member', function (){
+    return view('member.index');
+});
+
+Route::get('/users/{name}', function ($name){
+    echo "<h1>Hello $name </h1>";
 });
